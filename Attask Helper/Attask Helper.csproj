@@ -35,6 +35,10 @@
     <ApplicationIcon>attask-logo-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="HtmlAgilityPack">
       <HintPath>C:\Users\ath\Downloads\HtmlAgilityPack.1.4.6 (1)\Net40\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -50,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\BuildStatus.cs" />
     <Compile Include="DTO\WebRow.cs" />
     <Compile Include="MVC\BuildControl.cs">
       <SubType>UserControl</SubType>
@@ -103,6 +108,7 @@
     <EmbeddedResource Include="MVC\OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -128,6 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="attask-logo-icon.ico" />
+    <None Include="Resources\yellow.png" />
+    <None Include="Resources\red.png" />
+    <None Include="Resources\orange.png" />
+    <None Include="Resources\green.png" />
+    <None Include="Resources\grey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

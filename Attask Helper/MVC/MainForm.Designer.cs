@@ -92,12 +92,14 @@
       // 
       this.defaultBuildRow.BackColor = System.Drawing.SystemColors.Window;
       this.defaultBuildRow.BuildRow = null;
+      this.defaultBuildRow.LastBuild = "";
       this.defaultBuildRow.Location = new System.Drawing.Point(12, 12);
       this.defaultBuildRow.MajorBuild = "";
       this.defaultBuildRow.Margin = new System.Windows.Forms.Padding(0);
       this.defaultBuildRow.MinorBuild = "";
       this.defaultBuildRow.Name = "defaultBuildRow";
-      this.defaultBuildRow.Size = new System.Drawing.Size(383, 20);
+      this.defaultBuildRow.Size = new System.Drawing.Size(664, 20);
+      this.defaultBuildRow.Status = Attask_Helper.DTO.BuildStatus.Unknown;
       this.defaultBuildRow.TabIndex = 0;
       // 
       // changesetPanel

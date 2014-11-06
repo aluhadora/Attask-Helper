@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Attask_Helper.DTO;
 using Attask_Helper.OptionsDTO;
 using Attask_Helper.Processes;
 
@@ -121,6 +122,8 @@ namespace Attask_Helper.MVC
       {
         var webRow = webRows.FirstOrDefault(x => x.ProjectName == buildRow.ProjectName);
         buildRow.MinorBuild = webRow == null ? string.Empty : webRow.NextBuildNumber;
+        buildRow.Status = webRow == null ? BuildStatus.Unknown : webRow.BuildStatus;
+        buildRow.LastBuild = webRow == null ? string.Empty : webRow.LastBuildLabel;
         _view.RefreshBuildRow(buildRow);
       }
     }

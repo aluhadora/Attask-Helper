@@ -62,6 +62,8 @@ namespace Attask_Helper.MVC
 
       _rows[buildRow].MinorBuild = buildRow.MinorBuild;
       _rows[buildRow].MajorBuild = buildRow.MajorBuild;
+      _rows[buildRow].LastBuild = buildRow.LastBuild;
+      _rows[buildRow].Status = buildRow.Status;
     }
 
     public Profile Profile

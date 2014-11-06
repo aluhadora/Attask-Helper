@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using Attask_Helper.DTO;
 using Attask_Helper.OptionsDTO;
 
 namespace Attask_Helper.MVC
@@ -58,6 +60,41 @@ namespace Attask_Helper.MVC
         if (BuildRow != null) BuildRow.MajorBuild = value;
         majorBuildTextBox.Text = value;
       }
+    }
+
+    public string LastBuild
+    {
+      get { return BuildRow != null ? BuildRow.LastBuild : string.Empty; }
+      set
+      {
+        if (BuildRow != null) BuildRow.LastBuild = value;
+        lastBuildLabel.Text = value;
+      }
+    }
+
+    public BuildStatus Status
+    {
+      get { return BuildRow != null ? BuildRow.Status : BuildStatus.Unknown; }
+      set
+      {
+        if (BuildRow != null) BuildRow.Status = value;
+        StatusImage = ComputeImage(value);
+      }
+    }
+
+    private Image ComputeImage(BuildStatus status)
+    {
+      if (status == BuildStatus.Success) return Properties.Resources.Green;
+      if (status == BuildStatus.Building) return Properties.Resources.Yellow;
+      if (status == BuildStatus.BrokenAndBuilding) return Properties.Resources.Orange;
+      if (status == BuildStatus.Broken) return Properties.Resources.Red;
+
+      return Properties.Resources.Grey;
+    }
+
+    private Image StatusImage
+    {
+      set { statusPictureBox.BackgroundImage = value; }
     }
   }
 }

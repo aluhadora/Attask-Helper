@@ -46,5 +46,25 @@ namespace Attask_Helper.DTO
         return Status;
       }
     }
+
+    public BuildStatus BuildStatus
+    {
+      get
+      {
+        if (LastBuildStatus == "Success")
+        {
+          if (Activity == "Building") return BuildStatus.Building;
+          if (Activity == "Pending") return BuildStatus.Success;
+          if (Activity == "Sleeping") return BuildStatus.Success;
+          return BuildStatus.Unknown;
+        }
+        if (LastBuildStatus == "Failure" || LastBuildStatus == "Exception" || LastBuildStatus == "Cancelled")
+        {
+          if (Activity == "Building") return BuildStatus.BrokenAndBuilding;
+          return BuildStatus.Broken;
+        }
+        return BuildStatus.Unknown;
+      }
+    }
   }
 }

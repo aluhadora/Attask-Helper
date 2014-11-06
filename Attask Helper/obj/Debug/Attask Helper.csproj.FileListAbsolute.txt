@@ -13,3 +13,19 @@ D:\Dropbox\Coding\Visual Studio Projects\Work\Attask Helper\Attask Helper\bin\De
 D:\Dropbox\Coding\Visual Studio Projects\Work\Attask Helper\Attask Helper\bin\Debug\HtmlAgilityPack.xml
 D:\Dropbox\Coding\Visual Studio Projects\Work\Attask Helper\Attask Helper\obj\Debug\Attask_Helper.MVC.FolderBrowseBox.resources
 D:\Dropbox\Coding\Visual Studio Projects\Work\Attask Helper\Attask Helper\obj\Debug\Attask_Helper.MVC.OptionsDialog.resources
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\bin\Debug\Attask Helper.exe.config
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask Helper.exe
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask Helper.pdb
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\bin\Debug\Attask Helper.exe
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\bin\Debug\Attask Helper.pdb
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\bin\Debug\HtmlAgilityPack.dll
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\bin\Debug\HtmlAgilityPack.pdb
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\bin\Debug\HtmlAgilityPack.xml
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask Helper.csprojResolveAssemblyReference.cache
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask_Helper.MVC.BuildControl.resources
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask_Helper.MVC.FolderBrowseBox.resources
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask_Helper.MVC.MainForm.resources
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask_Helper.MVC.OptionsDialog.resources
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask_Helper.Properties.Resources.resources
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask Helper.csproj.GenerateResource.Cache
+D:\Dropbox\Coding\Visual Studio Projects\Work\Attask-Helper\Attask Helper\obj\Debug\Attask Helper.exe.licenses

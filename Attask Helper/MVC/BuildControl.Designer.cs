@@ -33,6 +33,10 @@
       this.minorBuildTextBox = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.majorBuildTextBox = new System.Windows.Forms.TextBox();
+      this.statusPictureBox = new System.Windows.Forms.PictureBox();
+      this.label3 = new DevExpress.XtraEditors.LabelControl();
+      this.lastBuildLabel = new DevExpress.XtraEditors.LabelControl();
+      ((System.ComponentModel.ISupportInitialize)(this.statusPictureBox)).BeginInit();
       this.SuspendLayout();
       // 
       // copyBuildButton
@@ -81,11 +85,42 @@
       this.majorBuildTextBox.TabIndex = 7;
       this.majorBuildTextBox.TabStop = false;
       // 
+      // statusPictureBox
+      // 
+      this.statusPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.statusPictureBox.BackgroundImage = global::Attask_Helper.Properties.Resources.Grey;
+      this.statusPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+      this.statusPictureBox.Location = new System.Drawing.Point(639, -3);
+      this.statusPictureBox.Name = "statusPictureBox";
+      this.statusPictureBox.Size = new System.Drawing.Size(26, 26);
+      this.statusPictureBox.TabIndex = 12;
+      this.statusPictureBox.TabStop = false;
+      // 
+      // label3
+      // 
+      this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.label3.Location = new System.Drawing.Point(512, 5);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(49, 13);
+      this.label3.TabIndex = 13;
+      this.label3.Text = "Last Build:";
+      // 
+      // lastBuildLabel
+      // 
+      this.lastBuildLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lastBuildLabel.Location = new System.Drawing.Point(567, 5);
+      this.lastBuildLabel.Name = "lastBuildLabel";
+      this.lastBuildLabel.Size = new System.Drawing.Size(0, 13);
+      this.lastBuildLabel.TabIndex = 14;
+      // 
       // BuildControl
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.SystemColors.Window;
+      this.Controls.Add(this.lastBuildLabel);
+      this.Controls.Add(this.label3);
+      this.Controls.Add(this.statusPictureBox);
       this.Controls.Add(this.copyBuildButton);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.minorBuildTextBox);
@@ -93,7 +128,8 @@
       this.Controls.Add(this.majorBuildTextBox);
       this.Margin = new System.Windows.Forms.Padding(0);
       this.Name = "BuildControl";
-      this.Size = new System.Drawing.Size(381, 20);
+      this.Size = new System.Drawing.Size(664, 20);
+      ((System.ComponentModel.ISupportInitialize)(this.statusPictureBox)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -106,5 +142,8 @@
     private System.Windows.Forms.TextBox minorBuildTextBox;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox majorBuildTextBox;
+    private System.Windows.Forms.PictureBox statusPictureBox;
+    private DevExpress.XtraEditors.LabelControl label3;
+    private DevExpress.XtraEditors.LabelControl lastBuildLabel;
   }
 }
