@@ -80,7 +80,7 @@
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(93, 13);
       this.label2.TabIndex = 3;
-      this.label2.Text = "Connect directory:";
+      this.label2.Text = "2015.02 directory:";
       // 
       // folderBrowseBox3
       // 
@@ -102,7 +102,7 @@
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(92, 13);
       this.label3.TabIndex = 5;
-      this.label3.Text = "2015.02 directory:";
+      this.label3.Text = "Connect directory:";
       // 
       // okButton
       // 
