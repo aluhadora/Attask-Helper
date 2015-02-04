@@ -8,7 +8,7 @@ namespace Attask_Helper.Processes
   public static class DirectoriesProcess
   {
     public const string Clarity147Name = "Clarity-4.2.147";
-    public const string Connect201502Name = "2015.02";
+    public const string Connect201502Name = "2015.05";
     public const string ConnectName = "Connect";
 
     public const string Pattern = "default.*http://.*degobah/hg/{0}/";

@@ -39,13 +39,13 @@ namespace Attask_Helper
     {
       var reg = new RegistryEditor(false);
       Options.Clarity147Directory = reg.Read(Options.Clarity147DirectoryKey);
-      Options.Connect201502Directory = reg.Read(Options.Connect201502DirectoryKey);
+      Options.Connect201505Directory = reg.Read(Options.Connect201505DirectoryKey);
       Options.ConnectDirectory = reg.Read(Options.ConnectDirectoryKey);
       
       ShowOptionsDialogIfNecessary(args);
 
       const string clarity = "Clarity 147";
-      const string connect2015 = "2015.02";
+      const string connect2015 = "2015.05";
       const string connect = "Connect";
 
       Options.Profiles = new List<Profile>
@@ -58,10 +58,10 @@ namespace Attask_Helper
       var profiles = Options.Profiles;
 
       AddRow(profiles[0], "Clarity 4.2.147", "4.2.147", Options.Clarity147Directory);
-      AddRow(profiles[0], "2015.02", connect2015, Options.Connect201502Directory);
+      AddRow(profiles[0], "2015.05", connect2015, Options.Connect201505Directory);
       AddRow(profiles[0], "Connect", connect, Options.ConnectDirectory);
 
-      AddRow(profiles[1], "2015.02", connect2015, Options.Connect201502Directory);
+      AddRow(profiles[1], "2015.05", connect2015, Options.Connect201505Directory);
       AddRow(profiles[1], "Connect", connect, Options.ConnectDirectory);
 
       AddRow(profiles[2], "Connect", connect, Options.ConnectDirectory);
@@ -79,11 +79,11 @@ namespace Attask_Helper
       var reg = new RegistryEditor(false);
       
       Options.Clarity147Directory = form.Clarity147Directory;
-      Options.Connect201502Directory = form.Connect201502Directory;
+      Options.Connect201505Directory = form.Connect201502Directory;
       Options.ConnectDirectory = form.ConnectDirectory;
 
       reg.Write(Options.Clarity147DirectoryKey, Options.Clarity147Directory);
-      reg.Write(Options.Connect201502DirectoryKey, Options.Connect201502Directory);
+      reg.Write(Options.Connect201505DirectoryKey, Options.Connect201505Directory);
       reg.Write(Options.ConnectDirectoryKey, Options.ConnectDirectory);
 
       if (ShouldShowOptions(args)) Application.Exit();
@@ -93,7 +93,7 @@ namespace Attask_Helper
     {
       if (args.Contains("options")) return true;
       if (DirectoryCheck(Options.Clarity147Directory)) return true;
-      if (DirectoryCheck(Options.Connect201502Directory)) return true;
+      if (DirectoryCheck(Options.Connect201505Directory)) return true;
       if (DirectoryCheck(Options.ConnectDirectory)) return true;
 
       return false;

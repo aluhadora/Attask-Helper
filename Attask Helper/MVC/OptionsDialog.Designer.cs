@@ -80,7 +80,7 @@
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(93, 13);
       this.label2.TabIndex = 3;
-      this.label2.Text = "2015.02 directory:";
+      this.label2.Text = "2015.05 directory:";
       // 
       // folderBrowseBox3
       // 

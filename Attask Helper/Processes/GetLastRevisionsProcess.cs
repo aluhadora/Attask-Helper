@@ -17,7 +17,7 @@ namespace Attask_Helper.Processes
 
     private static IList<string> HandleOutput(string output)
     {
-      output = output.Substring(output.IndexOf("changeset"));
+       output = output.Substring(output.IndexOf("changeset"));
       var lines = output.Lines();
       lines.RemoveRange(lines.Count - 4, 3);
 

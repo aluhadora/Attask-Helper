@@ -68,7 +68,7 @@
       this.profileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.profileComboBox.Items.AddRange(new object[] {
             "Clarity 147",
-            "2015.02",
+            "2015.05",
             "Connect"});
       this.profileComboBox.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
       this.profileComboBox.Name = "profileComboBox";
