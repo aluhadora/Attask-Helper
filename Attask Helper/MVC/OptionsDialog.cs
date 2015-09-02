@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using Attask_Helper.OptionsDTO;
 using Attask_Helper.Processes;
 using Attask_Helper.Utilities;
 
@@ -13,16 +14,22 @@ namespace Attask_Helper.MVC
     {
       InitializeComponent();
 
+      folderBrowseBox1.FolderPath = Options.Clarity147Directory;
+      folderBrowseBox2.FolderPath = Options.Connect201511Directory;
+      folderBrowseBox3.FolderPath = Options.DevelopmentDirectory;
+      
       PopulateDefaultFilePaths();
     }
 
     private void PopulateDefaultFilePaths()
     {
+      if (!Options.Clarity147Directory.IsNullOrTrimmedEmpty() && !Options.Connect201511Directory.IsNullOrTrimmedEmpty() &&
+        !Options.DevelopmentDirectory.IsNullOrTrimmedEmpty()) return;
       var directories = DirectoriesProcess.Run();
 
       HandleBranch(directories, DirectoriesProcess.Clarity147Name, folderBrowseBox1);
-      HandleBranch(directories, DirectoriesProcess.Connect201502Name, folderBrowseBox2);
-      HandleBranch(directories, DirectoriesProcess.ConnectName, folderBrowseBox3);
+      HandleBranch(directories, DirectoriesProcess.Connect201511Name, folderBrowseBox2);
+      HandleBranch(directories, DirectoriesProcess.DevelopmentName, folderBrowseBox3);
     }
 
     public void HandleBranch(IDictionary<string, string> directories, string branch, FolderBrowseBox box)
@@ -37,15 +44,15 @@ namespace Attask_Helper.MVC
     }
 
     public string Clarity147Directory { get; set; }
-    public string Connect201502Directory { get; set; }
-    public string ConnectDirectory { get; set; }
+    public string Connect201511Directory { get; set; }
+    public string DevelopmentDirectory { get; set; }
     
     private void OKClicked(object sender, EventArgs e)
     {
       DialogResult = DialogResult.OK;
       Clarity147Directory = folderBrowseBox1.FolderPath;
-      Connect201502Directory = folderBrowseBox2.FolderPath;
-      ConnectDirectory = folderBrowseBox3.FolderPath;
+      Connect201511Directory = folderBrowseBox2.FolderPath;
+      DevelopmentDirectory = folderBrowseBox3.FolderPath;
 
       Close();
     }

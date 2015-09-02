@@ -43,6 +43,10 @@ namespace Attask_Helper.DTO
           if (Activity == "Building") return (lastBuild + 2).ToString();
           return Activity;
         }
+        if (Status == "Stopped")
+        {
+          return (lastBuild + 1).ToString();
+        }
         return Status;
       }
     }

@@ -49,10 +49,11 @@
       // 
       // folderBrowseBox1
       // 
+      this.folderBrowseBox1.BackColor = System.Drawing.SystemColors.Window;
       this.folderBrowseBox1.DialogDescription = "";
       this.folderBrowseBox1.FolderCreationAllowed = false;
       this.folderBrowseBox1.FolderPath = "";
-      this.folderBrowseBox1.Location = new System.Drawing.Point(123, 14);
+      this.folderBrowseBox1.Location = new System.Drawing.Point(133, 14);
       this.folderBrowseBox1.Name = "folderBrowseBox1";
       this.folderBrowseBox1.NextFocusControl = null;
       this.folderBrowseBox1.Size = new System.Drawing.Size(294, 21);
@@ -62,10 +63,11 @@
       // 
       // folderBrowseBox2
       // 
+      this.folderBrowseBox2.BackColor = System.Drawing.SystemColors.Window;
       this.folderBrowseBox2.DialogDescription = "";
       this.folderBrowseBox2.FolderCreationAllowed = false;
       this.folderBrowseBox2.FolderPath = "";
-      this.folderBrowseBox2.Location = new System.Drawing.Point(123, 41);
+      this.folderBrowseBox2.Location = new System.Drawing.Point(133, 41);
       this.folderBrowseBox2.Name = "folderBrowseBox2";
       this.folderBrowseBox2.NextFocusControl = null;
       this.folderBrowseBox2.Size = new System.Drawing.Size(294, 21);
@@ -78,16 +80,17 @@
       this.label2.AutoSize = true;
       this.label2.Location = new System.Drawing.Point(15, 44);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(93, 13);
+      this.label2.Size = new System.Drawing.Size(92, 13);
       this.label2.TabIndex = 3;
-      this.label2.Text = "2015.05 directory:";
+      this.label2.Text = "2015.11 directory:";
       // 
       // folderBrowseBox3
       // 
+      this.folderBrowseBox3.BackColor = System.Drawing.SystemColors.Window;
       this.folderBrowseBox3.DialogDescription = "";
       this.folderBrowseBox3.FolderCreationAllowed = false;
       this.folderBrowseBox3.FolderPath = "";
-      this.folderBrowseBox3.Location = new System.Drawing.Point(123, 68);
+      this.folderBrowseBox3.Location = new System.Drawing.Point(133, 68);
       this.folderBrowseBox3.Name = "folderBrowseBox3";
       this.folderBrowseBox3.NextFocusControl = null;
       this.folderBrowseBox3.Size = new System.Drawing.Size(294, 21);
@@ -100,14 +103,14 @@
       this.label3.AutoSize = true;
       this.label3.Location = new System.Drawing.Point(15, 71);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(92, 13);
+      this.label3.Size = new System.Drawing.Size(116, 13);
       this.label3.TabIndex = 5;
-      this.label3.Text = "Connect directory:";
+      this.label3.Text = "Development directory:";
       // 
       // okButton
       // 
       this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.okButton.Location = new System.Drawing.Point(260, 106);
+      this.okButton.Location = new System.Drawing.Point(270, 106);
       this.okButton.Name = "okButton";
       this.okButton.Size = new System.Drawing.Size(75, 23);
       this.okButton.TabIndex = 7;
@@ -118,7 +121,7 @@
       // cancelButton
       // 
       this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.cancelButton.Location = new System.Drawing.Point(341, 106);
+      this.cancelButton.Location = new System.Drawing.Point(351, 106);
       this.cancelButton.Name = "cancelButton";
       this.cancelButton.Size = new System.Drawing.Size(75, 23);
       this.cancelButton.TabIndex = 8;
@@ -141,7 +144,7 @@
       this.Controls.Add(this.folderBrowseBox1);
       this.Controls.Add(this.label1);
       this.MaximizeBox = false;
-      this.MaximumSize = new System.Drawing.Size(447, 183);
+      this.MaximumSize = new System.Drawing.Size(547, 183);
       this.MinimumSize = new System.Drawing.Size(447, 183);
       this.Name = "OptionsDialog";
       this.Padding = new System.Windows.Forms.Padding(12);

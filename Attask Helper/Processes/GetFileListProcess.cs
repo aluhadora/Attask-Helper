@@ -33,13 +33,14 @@ namespace Attask_Helper.Processes
 
     private static string ProcessChangeSet(string changeSet, string directory)
     {
-      var command = string.Format("hg log -v -r {0}", changeSet);
+      var command = string.Format("\"C:\\Program Files\\TortoiseHG\\hg\" log -v -r {0}", changeSet);
 
-      return HandleOutput(Command.Run(directory, command));
+      return FilesFromOutput(Command.Run(directory, command));
     }
 
-    private static string HandleOutput(string output)
+    private static string FilesFromOutput(string output)
     {
+      if (output.IndexOf("files:") < 0) return string.Empty;
       output = output.Substring(output.IndexOf("files:"));
       output = output.Substring(0, output.IndexOf("description:"));
       output = output.Substring(6).Trim();

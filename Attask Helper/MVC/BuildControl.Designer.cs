@@ -99,7 +99,7 @@
       // label3
       // 
       this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.label3.Location = new System.Drawing.Point(512, 5);
+      this.label3.Location = new System.Drawing.Point(491, 5);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(49, 13);
       this.label3.TabIndex = 13;
@@ -108,7 +108,7 @@
       // lastBuildLabel
       // 
       this.lastBuildLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.lastBuildLabel.Location = new System.Drawing.Point(567, 5);
+      this.lastBuildLabel.Location = new System.Drawing.Point(546, 5);
       this.lastBuildLabel.Name = "lastBuildLabel";
       this.lastBuildLabel.Size = new System.Drawing.Size(0, 13);
       this.lastBuildLabel.TabIndex = 14;

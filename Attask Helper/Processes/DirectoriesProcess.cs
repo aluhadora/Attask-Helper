@@ -8,8 +8,8 @@ namespace Attask_Helper.Processes
   public static class DirectoriesProcess
   {
     public const string Clarity147Name = "Clarity-4.2.147";
-    public const string Connect201502Name = "2015.05";
-    public const string ConnectName = "Connect";
+    public const string Connect201511Name = "2015.11";
+    public const string DevelopmentName = "Development";
 
     public const string Pattern = "default.*http://.*degobah/hg/{0}/";
 
@@ -24,8 +24,8 @@ namespace Attask_Helper.Processes
         foreach (var line in lines)
         {
           HandleBranch(line, dictionary, file, Clarity147Name);
-          HandleBranch(line, dictionary, file, Connect201502Name);
-          HandleBranch(line, dictionary, file, ConnectName);
+          HandleBranch(line, dictionary, file, Connect201511Name);
+          HandleBranch(line, dictionary, file, DevelopmentName);
         }
       }
 

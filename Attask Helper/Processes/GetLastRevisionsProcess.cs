@@ -10,7 +10,7 @@ namespace Attask_Helper.Processes
     public static IList<string> GetRevisions(string directory)
     {
       var hgUser = Environment.UserName;
-      var command = string.Format("hg log -l 15 -u {0}", hgUser);
+      var command = string.Format("\"C:\\Program Files\\TortoiseHG\\hg\" log -l 15 -u {0}", hgUser);
 
       return HandleOutput(Command.Run(directory, command));
     }

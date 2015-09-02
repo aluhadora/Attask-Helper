@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Attask_Helper.OptionsDTO;
+using Attask_Helper.Utilities;
 
 namespace Attask_Helper.MVC
 {
@@ -179,6 +180,24 @@ namespace Attask_Helper.MVC
     private void changeSetComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
       Raise(ChangeSetChangedEvent, sender, e);
+    }
+
+    private void toolStripButton1_Click(object sender, EventArgs e)
+    {
+      var form = new OptionsDialog();
+      form.ShowDialog(this);
+
+      if (form.DialogResult != DialogResult.OK) Application.Exit();
+
+      var reg = new RegistryEditor(false);
+
+      Options.Clarity147Directory = form.Clarity147Directory;
+      Options.Connect201511Directory = form.Connect201511Directory;
+      Options.DevelopmentDirectory = form.DevelopmentDirectory;
+
+      reg.Write(Options.Clarity147DirectoryKey, Options.Clarity147Directory);
+      reg.Write(Options.Connect201511DirectoryKey, Options.Connect201511Directory);
+      reg.Write(Options.DevelopmentDirectoryKey, Options.DevelopmentDirectory);
     }
   }
 }
