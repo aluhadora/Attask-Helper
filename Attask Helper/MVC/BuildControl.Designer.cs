@@ -34,8 +34,8 @@
       this.label1 = new System.Windows.Forms.Label();
       this.majorBuildTextBox = new System.Windows.Forms.TextBox();
       this.statusPictureBox = new System.Windows.Forms.PictureBox();
-      this.label3 = new DevExpress.XtraEditors.LabelControl();
-      this.lastBuildLabel = new DevExpress.XtraEditors.LabelControl();
+      this.label3 = new System.Windows.Forms.Label();
+      this.lastBuildLabel = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.statusPictureBox)).BeginInit();
       this.SuspendLayout();
       // 
@@ -143,7 +143,7 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox majorBuildTextBox;
     private System.Windows.Forms.PictureBox statusPictureBox;
-    private DevExpress.XtraEditors.LabelControl label3;
-    private DevExpress.XtraEditors.LabelControl lastBuildLabel;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.Label lastBuildLabel;
   }
 }
