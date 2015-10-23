@@ -7,16 +7,19 @@ Generates AtTask changeset information for Caselle
 
 When you select a changeset it builds something you can paste for an update for the defect like so:
 
-`Build Development.1337 revision 55420 (d1fa25bef1a3)
+```
+Build Development.1337 revision 55420 (d1fa25bef1a3)
 
 MasterSln/Caselle.Um0/Caselle.Um0.WrsObserver/Actions/LocationInformationAction.cs
 MasterSln/Caselle.Um0/Caselle.Um0.WrsObserver/Caselle.Um0.WrsObserver.csproj
 MasterSln/Caselle.Um0/Caselle.Um0.WrsObserver/DTO/ThinLocation.cs
-MasterSln/Caselle.Um0/Caselle.Um0.WrsObserver/Messages/LocationInformationMessgae.cs`
+MasterSln/Caselle.Um0/Caselle.Um0.WrsObserver/Messages/LocationInformationMessgae.cs
+```
 
 It even works for if you did a defect in 147 or in Prerelease
 
-`Build 4.2.147.1337 revision 48156 (f62c0756f556)
+```
+Build 4.2.147.1337 revision 48156 (f62c0756f556)
 Build 2016.02.1337
 Build Development.1337
 
@@ -28,7 +31,8 @@ MasterSln/Caselle.Cd0/Caselle.Cd0.MVC/Miscellaneous/UpdateGL/UpdateGLPhase.cs
 MasterSln/Caselle.Cd0/Caselle.Cd0.MVC/Miscellaneous/UpdateGL/UpdateGLProcess.cs
 MasterSln/Caselle.Cd0/Caselle.Cd0.MVC/Miscellaneous/UpdateGL/UpdateGLView.cs
 MasterSln/Caselle.Cd0/Caselle.Cd0.Utility/GeneralLedgerUtility.cs
-MasterSln/Caselle.Constants/Views.cs`
+MasterSln/Caselle.Constants/Views.cs
+```
 
 #How to use it
 
