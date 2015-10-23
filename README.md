@@ -36,7 +36,7 @@ MasterSln/Caselle.Constants/Views.cs
 
 #How to use it
 
-AtTask Helper makes a couple of assumptions about how you manage your workflow that are pretty safe for Caselle employees  
+AtTask Helper makes a couple of assumptions about how you manage your workflow that are pretty safe for Caselle employees 
 1. You have a `Development`, a `Prerelease` and a `Clarity.147` branch cloned to somewhere in `D:\`  
 2. Your computer username is the same as your Degobah login (eg. ATH for me)  
 3. Deathstar is currently running (Not grey in CCTray)  
@@ -49,7 +49,7 @@ If you want to select one automatically on run you can just create a shortcut th
 
 #How it Works
 
-AtTask-Helper pulls information from two places
+AtTask-Helper pulls information from two places  
 1. From the HG repository on your machine  
 2. And from `http://deathstar/ccnet`
 
