@@ -44,7 +44,7 @@ AtTask Helper makes a couple of assumptions about how you manage your workflow t
 The first time that AtTask-Helper runs per release it attempts to find all of your hg repositories to build up profiles for processing.  After that it will run an options dialog that allows you to select the directories that all of your code is in.
 
 After running there is a profile dropdown, this allows you to select which repository you're wanting to build a comment for
-If you want to select one automatically on run you can just create a shortcut that has the profile name after the target (eg. Target: `"D:\AllanIsTheBestCoderEver\AtTask-Helper\AtTask-Helper.exe" Development"`
+If you want to select one automatically on run you can just create a shortcut that has the profile name after the target (eg. Target: `"D:\AllanIsTheBestCoderEver\AtTask-Helper\AtTask-Helper.exe" Development`
 
 
 #How it Works
