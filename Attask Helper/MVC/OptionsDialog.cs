@@ -15,7 +15,7 @@ namespace Attask_Helper.MVC
       InitializeComponent();
 
       folderBrowseBox1.FolderPath = Options.Clarity147Directory;
-      folderBrowseBox2.FolderPath = Options.Connect201511Directory;
+      folderBrowseBox2.FolderPath = Options.Connect201602Directory;
       folderBrowseBox3.FolderPath = Options.DevelopmentDirectory;
       
       PopulateDefaultFilePaths();
@@ -23,12 +23,12 @@ namespace Attask_Helper.MVC
 
     private void PopulateDefaultFilePaths()
     {
-      if (!Options.Clarity147Directory.IsNullOrTrimmedEmpty() && !Options.Connect201511Directory.IsNullOrTrimmedEmpty() &&
+      if (!Options.Clarity147Directory.IsNullOrTrimmedEmpty() && !Options.Connect201602Directory.IsNullOrTrimmedEmpty() &&
         !Options.DevelopmentDirectory.IsNullOrTrimmedEmpty()) return;
       var directories = DirectoriesProcess.Run();
 
       HandleBranch(directories, DirectoriesProcess.Clarity147Name, folderBrowseBox1);
-      HandleBranch(directories, DirectoriesProcess.Connect201511Name, folderBrowseBox2);
+      HandleBranch(directories, DirectoriesProcess.Connect201602Name, folderBrowseBox2);
       HandleBranch(directories, DirectoriesProcess.DevelopmentName, folderBrowseBox3);
     }
 
@@ -44,14 +44,14 @@ namespace Attask_Helper.MVC
     }
 
     public string Clarity147Directory { get; set; }
-    public string Connect201511Directory { get; set; }
+    public string Connect201602Directory { get; set; }
     public string DevelopmentDirectory { get; set; }
     
     private void OKClicked(object sender, EventArgs e)
     {
       DialogResult = DialogResult.OK;
       Clarity147Directory = folderBrowseBox1.FolderPath;
-      Connect201511Directory = folderBrowseBox2.FolderPath;
+      Connect201602Directory = folderBrowseBox2.FolderPath;
       DevelopmentDirectory = folderBrowseBox3.FolderPath;
 
       Close();

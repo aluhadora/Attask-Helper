@@ -192,11 +192,11 @@ namespace Attask_Helper.MVC
       var reg = new RegistryEditor(false);
 
       Options.Clarity147Directory = form.Clarity147Directory;
-      Options.Connect201511Directory = form.Connect201511Directory;
+      Options.Connect201602Directory = form.Connect201602Directory;
       Options.DevelopmentDirectory = form.DevelopmentDirectory;
 
       reg.Write(Options.Clarity147DirectoryKey, Options.Clarity147Directory);
-      reg.Write(Options.Connect201511DirectoryKey, Options.Connect201511Directory);
+      reg.Write(Options.Connect201602DirectoryKey, Options.Connect201602Directory);
       reg.Write(Options.DevelopmentDirectoryKey, Options.DevelopmentDirectory);
     }
   }
