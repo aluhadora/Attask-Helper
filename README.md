@@ -46,6 +46,8 @@ The first time that AtTask-Helper runs per release it attempts to find all of yo
 After running there is a profile dropdown, this allows you to select which repository you're wanting to build a comment for
 If you want to select one automatically on run you can just create a shortcut that has the profile name after the target (eg. Target: `"D:\AllanIsTheBestCoderEver\AtTask-Helper\AtTask-Helper.exe" Development`
 
+Now that it's running you can simply click in the big box to copy the Changeset information, or click "Copy" to copy any build information.
+
 
 #How it Works
 
