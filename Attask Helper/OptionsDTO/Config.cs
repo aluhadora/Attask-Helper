@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Xml;
 
 namespace Attask_Helper.OptionsDTO
@@ -11,6 +12,7 @@ namespace Attask_Helper.OptionsDTO
     public static IDictionary<string, IList<string>> DefaultReleases;
     public static IDictionary<string, string> ReleaseNames; 
     public static string TestMessage;
+    private const string ConfigFileName = "Attask-Config.xml";
 
     static Config()
     {
@@ -22,12 +24,17 @@ namespace Attask_Helper.OptionsDTO
 
     private static string GetXml()
     {
-      return GetXml("Config.xml") ?? GetXml("Resources\\Config.xml") ?? DownloadConfig();
+      return GetXml(ConfigFileName) ?? GetXml("Resources\\" + ConfigFileName) ?? DownloadConfig();
     }
 
     private static string DownloadConfig()
     {
-      throw new NotImplementedException();
+      using (var wc = new WebClient())
+      {
+        wc.DownloadFile(Properties.Resources.ConfigURL, ConfigFileName);        
+      }
+
+      return GetXml(ConfigFileName);
     }
 
     private static string GetXml(string path)

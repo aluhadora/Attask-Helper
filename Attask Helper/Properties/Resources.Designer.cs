@@ -61,6 +61,31 @@ namespace Attask_Helper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;builds&gt;
+        ///  &lt;build degobah=&quot;Connect&quot; deathstar=&quot;Development&quot;/&gt;
+        ///  &lt;build degobah=&quot;Clarity-4.2.147&quot; deathstar=&quot;Clarity 4.2.147&quot;/&gt;
+        ///  
+        ///  &lt;release name=&quot;release&quot; degobah=&quot;2015.11&quot;&gt;
+        ///    &lt;subrelease name=&quot;prerelease&quot;/&gt;
+        ///    &lt;subrelease name=&quot;development&quot;/&gt;
+        ///  &lt;/release&gt;
+        ///
+        ///  &lt;release name=&quot;clarity&quot; degobah=&quot;Clarity-4.2.147&quot;&gt;
+        ///    &lt;subrelease name=&quot;prerelease&quot;/&gt;
+        ///    &lt;subrelease name=&quot;development&quot;/&gt;
+        ///  &lt;/release&gt;
+        ///
+        ///  &lt;release name=&quot;prerelease&quot; degobah=&quot;2016.02&quot;&gt;
+        ///    &lt;subrelease name=&quot;development&quot;/&gt;
+        ///  &lt;/relea [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Attask_Config {
+            get {
+                return ResourceManager.GetString("Attask_Config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://deathstar/ccnet/ViewFarmReport.aspx.
         /// </summary>
         internal static string CCNet {
@@ -70,14 +95,11 @@ namespace Attask_Helper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;builds&gt;
-        ///  &lt;build degobah=&quot;Connect&quot; deathstar=&quot;Development&quot;/&gt;
-        ///  &lt;build degobah=&quot;Clarity-4.2.147&quot; deathstar=&quot;Clarity 4.2.147&quot;/&gt;
-        ///&lt;/builds&gt;.
+        ///   Looks up a localized string similar to https://raw.githubusercontent.com/aluhadora/Attask-Helper/master/Attask%20Helper/Resources/Config.xml.
         /// </summary>
-        internal static string Config {
+        internal static string ConfigURL {
             get {
-                return ResourceManager.GetString("Config", resourceCulture);
+                return ResourceManager.GetString("ConfigURL", resourceCulture);
             }
         }
         
