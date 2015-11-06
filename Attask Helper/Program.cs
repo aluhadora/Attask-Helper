@@ -131,9 +131,10 @@ namespace Attask_Helper
       var directory = Path.Combine(profile.Directory, ".hg", "hgrc");
 
       var line = File.ReadAllLines(directory).First(x => x.Contains("default = "));
-      line = line.Substring(0, line.LastIndexOf("/"));
-      line = line.Substring(line.LastIndexOf("/") + 1);
-      return line;
+      line = line.Substring(line.IndexOf("http"));
+      var uri = new Uri(line);
+
+      return uri.Segments.Last().Trim('/').Trim();
     }
   }
 }
