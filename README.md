@@ -1,9 +1,8 @@
-Attask-Helper
-=============
+#Attask-Helper
 
 Generates AtTask changeset information for Caselle 
 
-#What it Looks Like
+##What it Looks Like
 
 When you select a changeset it builds something you can paste for an update for the defect like so:
 
@@ -34,7 +33,7 @@ MasterSln/Caselle.Cd0/Caselle.Cd0.Utility/GeneralLedgerUtility.cs
 MasterSln/Caselle.Constants/Views.cs
 ```
 
-#How to use it
+##How to use it
 
 AtTask Helper makes a couple of assumptions about how you manage your workflow that are pretty safe for Caselle employees  
 1. Your computer username is the same as your Degobah login (eg. ATH for me)  
@@ -48,7 +47,7 @@ If you want to select one automatically on run you can just create a shortcut th
 Now that it's running you can simply click in the big box to copy the Changeset information, or click "Copy" to copy any build information.
 
 
-#How it Works
+##How it Works
 
 AtTask-Helper pulls information from two places  
 1. From the HG repository on your machine  
