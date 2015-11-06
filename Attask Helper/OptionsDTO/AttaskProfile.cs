@@ -13,5 +13,17 @@ namespace Attask_Helper.OptionsDTO
     {
       Rows = new List<BuildRow>();
     }
+
+    public AttaskProfile(AttaskProfile p)
+    {
+      Index = p.Index;
+      ProfileName = p.ProfileName;
+      Rows = new List<BuildRow>();
+      foreach (var buildRow in p.Rows)
+      {
+        Rows.Add(new BuildRow(buildRow) { AttaskProfile = this});
+      }
+      Visible = p.Visible;
+    }
   }
 }

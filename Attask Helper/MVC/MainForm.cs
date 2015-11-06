@@ -32,7 +32,7 @@ namespace Attask_Helper.MVC
       profileSelector.ProfileChanged += ProfileSelectorChanged;
       profileSelector.OptionsClicked += OptionsClicked;
       profileSelector.Filter = Filter;
-      profileSelector.Initialize();
+      profileSelector.Reload();
     }
 
     private bool Filter(string profileName)
@@ -49,13 +49,8 @@ namespace Attask_Helper.MVC
 
         if (dialog.DialogResult != DialogResult.OK) return;
 
-        ReloadProfiles();
+        profileSelector.Reload();
       }
-    }
-
-    private void ReloadProfiles()
-    {
-      
     }
 
     private void HookEventsForRow(BuildControl control)

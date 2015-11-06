@@ -17,5 +17,21 @@ namespace Attask_Helper.OptionsDTO
 
     public string DegobahName { get; set; }
     public string WebName { get; set; }
+
+    public BuildRow()
+    {
+      
+    }
+
+    public BuildRow(BuildRow b)
+    {
+      Profile = b.Profile;
+      MajorBuild = b.MajorBuild;
+      MinorBuild = b.MinorBuild;
+      Status = b.Status;
+      LastBuild = b.LastBuild;
+      DegobahName = b.DegobahName;
+      WebName = b.WebName;
+    }
   }
 }

@@ -40,7 +40,6 @@
       // 
       // profileSelector
       // 
-      this.profileSelector.CurrentProfile = null;
       this.profileSelector.Dock = System.Windows.Forms.DockStyle.Top;
       this.profileSelector.Location = new System.Drawing.Point(0, 0);
       this.profileSelector.Name = "profileSelector";
@@ -70,6 +69,7 @@
       this.visibleCheckBox.TabIndex = 0;
       this.visibleCheckBox.Text = "Visible";
       this.visibleCheckBox.UseVisualStyleBackColor = true;
+      this.visibleCheckBox.CheckedChanged += new System.EventHandler(this.visibleCheckBox_CheckedChanged);
       // 
       // buttonPanel
       // 
