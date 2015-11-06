@@ -75,9 +75,9 @@ namespace Attask_Helper.Properties {
         ///  &lt;build degobah=&quot;Clarity-4.2.147&quot; deathstar=&quot;Clarity 4.2.147&quot;/&gt;
         ///&lt;/builds&gt;.
         /// </summary>
-        internal static string DeathstarBuildConversions {
+        internal static string Config {
             get {
-                return ResourceManager.GetString("DeathstarBuildConversions", resourceCulture);
+                return ResourceManager.GetString("Config", resourceCulture);
             }
         }
         

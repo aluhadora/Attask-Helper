@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Attask_Helper.MVC;
 using Attask_Helper.OptionsDTO;
@@ -25,6 +26,8 @@ namespace Attask_Helper
 
       PopulateOptions();
 
+      if (Config.TestMessage != null) MessageBox.Show(Config.TestMessage);
+
       var form = new MainForm {Profile = ComputeProfile(args)};
 
       new Presenter(form);
@@ -34,7 +37,7 @@ namespace Attask_Helper
     private static AttaskProfile ComputeProfile(string[] args)
     {
       var name = string.Join(" ", args);
-      return Options.Profiles.FirstOrDefault(x => x.ProfileName == name) ?? Options.Profiles[0];
+      return Options.Profiles.FirstOrDefault(x => x.ProfileName == name && x.Visible) ?? Options.Profiles.FirstOrDefault(x => x.Visible);
     }
 
     private static void PopulateOptions()
@@ -49,32 +52,64 @@ namespace Attask_Helper
         var attaskProfile = new AttaskProfile
         {
           Index = profile.Order,
-          ProfileName = profile.Name
+          ProfileName = profile.Name,
         };
+
+        var visible = reg.ReadInt(profile.Name, "Visible");
+        attaskProfile.Visible = !visible.HasValue || visible.Value != 0;
+        reg.Write(attaskProfile.ProfileName, "Visible", attaskProfile.Visible ? 1 : 0);
+
         Options.Profiles.Add(attaskProfile);
 
-        AddRow(attaskProfile, profile, "Needs to go away");
+        AddRow(attaskProfile, profile);
 
         var subProfileString = reg.Read(profile.Name, "SubProfiles");
 
-        if (subProfileString.IsNullOrTrimmedEmpty()) continue; 
+        if (subProfileString == null) subProfileString = BuildSubProfilesFromDefault(profile, profiles);
+        if (subProfileString.IsNullOrTrimmedEmpty()) continue;
 
         var subProfileNames = subProfileString.Split('|');
 
         foreach (var subProfileName in subProfileNames)
         {
-          AddRow(attaskProfile, profiles.FirstOrDefault(x => x.Name == subProfileName), "Needs to go away");
+          AddRow(attaskProfile, profiles.FirstOrDefault(x => x.Name == subProfileName));
         }
 
       }
     }
 
-    private static void AddRow(AttaskProfile attaskProfile, Profile caselleProfile, string majorBuild)
+    private static string BuildSubProfilesFromDefault(Profile profile, IList<Profile> profiles)
+    {
+      var degobahDictionary = new Dictionary<string, Profile>();
+      foreach (var p in profiles)
+      {
+        degobahDictionary.Add(DegobahName(p), p);
+      }
+
+      var releases = Config.DefaultReleases[Config.ReleaseNames[DegobahName(profile)]];
+
+      var sb = new StringBuilder();
+
+      foreach (var release in releases)
+      {
+        if (sb.Length > 0) sb.Append("|");
+        var d = Config.ReleaseNames.First(x => x.Value == release).Key;
+        sb.Append(degobahDictionary[d].Name);
+      }
+
+      var subProfiles = sb.ToString();
+
+      var reg = new RegistryEditor(false);
+      reg.Write(profile.Name, "SubProfiles", subProfiles);
+      return subProfiles;
+    }
+
+    private static void AddRow(AttaskProfile attaskProfile, Profile caselleProfile)
     {
       var row = new BuildRow
       {
         Profile = caselleProfile,
-        MajorBuild = majorBuild,
+        MajorBuild = "?",
         AttaskProfile = attaskProfile,
         DegobahName = DegobahName(caselleProfile),
         WebName = DegobahNameConverter.ConvertDegobahNameToDeathstarName(DegobahName(caselleProfile))

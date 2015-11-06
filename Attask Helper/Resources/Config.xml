@@ -1,0 +1,21 @@
+<builds>
+  <build degobah="Connect" deathstar="Development"/>
+  <build degobah="Clarity-4.2.147" deathstar="Clarity 4.2.147"/>
+  
+  <release name="release" degobah="2015.11">
+    <subrelease name="prerelease"/>
+    <subrelease name="development"/>
+  </release>
+
+  <release name="clarity" degobah="Clarity-4.2.147">
+    <subrelease name="prerelease"/>
+    <subrelease name="development"/>
+  </release>
+
+  <release name="prerelease" degobah="2016.02">
+    <subrelease name="development"/>
+  </release>
+  
+  <release name="development" degobah="Connect"/>
+    
+</builds>

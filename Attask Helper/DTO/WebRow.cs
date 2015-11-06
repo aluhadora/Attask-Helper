@@ -51,6 +51,21 @@ namespace Attask_Helper.DTO
       }
     }
 
+    public string MajorBuild
+    {
+      get
+      {
+        try
+        {
+          return LastBuildLabel.Substring(0, LastBuildLabel.LastIndexOf("."));
+        }
+        catch (Exception)
+        {
+          return "?";
+        }
+      }
+    }
+
     public BuildStatus BuildStatus
     {
       get

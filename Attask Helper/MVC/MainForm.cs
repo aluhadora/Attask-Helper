@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Attask_Helper.OptionsDTO;
+using Attask_Helper.Utilities;
 using CaselleProfiles.DTO;
 
 namespace Attask_Helper.MVC
@@ -29,6 +30,32 @@ namespace Attask_Helper.MVC
 
       HookEventsForRow(defaultBuildRow);
       profileSelector.ProfileChanged += ProfileSelectorChanged;
+      profileSelector.OptionsClicked += OptionsClicked;
+      profileSelector.Filter = Filter;
+      profileSelector.Initialize();
+    }
+
+    private bool Filter(string profileName)
+    {
+      return Options.Profiles.First(x => x.ProfileName == profileName).Visible;
+    }
+
+    private void OptionsClicked()
+    {
+      using (var dialog = new OptionsDialog())
+      {
+        dialog.Profile = Profile;
+        dialog.ShowDialog(this);
+
+        if (dialog.DialogResult != DialogResult.OK) return;
+
+        ReloadProfiles();
+      }
+    }
+
+    private void ReloadProfiles()
+    {
+      
     }
 
     private void HookEventsForRow(BuildControl control)
@@ -70,7 +97,6 @@ namespace Attask_Helper.MVC
 
     private void ProfileSelectorChanged(Profile obj)
     {
-      //Profile = Options.Profiles.FirstOrDefault(x => x.ProfileName == obj.Name);
       Raise(ProfileChangedEvent, null, null);
     }
 
@@ -182,24 +208,6 @@ namespace Attask_Helper.MVC
     private void changeSetComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
       Raise(ChangeSetChangedEvent, sender, e);
-    }
-
-    private void toolStripButton1_Click(object sender, EventArgs e)
-    {
-      //var form = new OptionsDialog();
-      //form.ShowDialog(this);
-
-      //if (form.DialogResult != DialogResult.OK) Application.Exit();
-
-      //var reg = new RegistryEditor(false);
-
-      //Options.Clarity147Directory = form.Clarity147Directory;
-      //Options.Connect201602Directory = form.Connect201602Directory;
-      //Options.DevelopmentDirectory = form.DevelopmentDirectory;
-
-      //reg.Write(Options.Clarity147DirectoryKey, Options.Clarity147Directory);
-      //reg.Write(Options.Connect201602DirectoryKey, Options.Connect201602Directory);
-      //reg.Write(Options.DevelopmentDirectoryKey, Options.DevelopmentDirectory);
     }
   }
 }

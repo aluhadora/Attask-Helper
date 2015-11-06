@@ -122,6 +122,7 @@ namespace Attask_Helper.MVC
       {
         var webRow = webRows.FirstOrDefault(x => x.ProjectName == buildRow.WebName);
         buildRow.MinorBuild = webRow == null ? string.Empty : webRow.NextBuildNumber;
+        buildRow.MajorBuild = webRow == null ? string.Empty : webRow.MajorBuild;
         buildRow.Status = webRow == null ? BuildStatus.Unknown : webRow.BuildStatus;
         buildRow.LastBuild = webRow == null ? string.Empty : webRow.LastBuildLabel;
         _view.RefreshBuildRow(buildRow);

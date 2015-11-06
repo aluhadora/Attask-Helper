@@ -137,6 +137,8 @@
       this.profileSelector.Dock = System.Windows.Forms.DockStyle.Top;
       this.profileSelector.Location = new System.Drawing.Point(0, 0);
       this.profileSelector.Name = "profileSelector";
+      this.profileSelector.OptionsVisible = true;
+      this.profileSelector.ProfileName = "";
       this.profileSelector.Size = new System.Drawing.Size(691, 25);
       this.profileSelector.TabIndex = 3;
       // 

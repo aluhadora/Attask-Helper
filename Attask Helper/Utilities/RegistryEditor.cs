@@ -77,6 +77,15 @@ namespace Attask_Helper.Utilities
       }
     }
 
+    public int? ReadInt(string profileName, string keyName)
+    {
+      var tempSubKey = SubKey;
+      SubKey = SubKey + "\\" + profileName;
+      var @return = ReadInt(keyName);
+      SubKey = tempSubKey;
+      return @return;
+    }
+
     public bool Write(string keyName, object value)
     {
       try
@@ -91,6 +100,38 @@ namespace Attask_Helper.Utilities
         // 'cause OpenSubKey open a subKey as read-only
 
         RegistryKey sk1 = rk.CreateSubKey(SubKey);
+        // Save the value
+
+        if (sk1 != null)
+        {
+          sk1.SetValue(keyName.ToUpper(), value);
+          return true;
+        }
+        throw new ArgumentOutOfRangeException();
+      }
+      catch (Exception e)
+      {
+        // AAAAAAAAAAARGH, an error!
+
+        ShowErrorMessage(e, "Writing registry " + keyName.ToUpper());
+        return false;
+      }
+    }
+
+    public bool Write(string profile, string keyName, object value)
+    {
+      try
+      {
+        // Setting
+
+        RegistryKey rk = _baseRegistryKey;
+        // I have to use CreateSubKey 
+
+        // (create or open it if already exits), 
+
+        // 'cause OpenSubKey open a subKey as read-only
+
+        RegistryKey sk1 = rk.CreateSubKey(SubKey + "\\" + profile);
         // Save the value
 
         if (sk1 != null)
