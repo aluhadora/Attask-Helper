@@ -19,7 +19,7 @@ namespace Attask_Helper.MVC
       HookupEvents();
     }
 
-    private Profile Profile
+    private AttaskProfile Profile
     {
       get { return _view.CurrentProfile; }
     }
@@ -120,7 +120,7 @@ namespace Attask_Helper.MVC
 
       foreach (var buildRow in Profile.Rows)
       {
-        var webRow = webRows.FirstOrDefault(x => x.ProjectName == buildRow.ProjectName);
+        var webRow = webRows.FirstOrDefault(x => x.ProjectName == buildRow.WebName);
         buildRow.MinorBuild = webRow == null ? string.Empty : webRow.NextBuildNumber;
         buildRow.Status = webRow == null ? BuildStatus.Unknown : webRow.BuildStatus;
         buildRow.LastBuild = webRow == null ? string.Empty : webRow.LastBuildLabel;

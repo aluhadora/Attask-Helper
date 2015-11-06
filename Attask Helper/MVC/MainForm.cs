@@ -67,7 +67,7 @@ namespace Attask_Helper.MVC
       _rows[buildRow].Status = buildRow.Status;
     }
 
-    public Profile Profile
+    public AttaskProfile Profile
     {
       get { return Options.Profiles.FirstOrDefault(x => x.ProfileName == profileComboBox.Text); }
       set { profileComboBox.Text = value.ProfileName; }
@@ -135,7 +135,7 @@ namespace Attask_Helper.MVC
       set { changeSetSummaryLabel.Text = value; }
     }
 
-    Profile IView.CurrentProfile
+    AttaskProfile IView.CurrentProfile
     {
       get { return Profile; }
     }
@@ -184,20 +184,20 @@ namespace Attask_Helper.MVC
 
     private void toolStripButton1_Click(object sender, EventArgs e)
     {
-      var form = new OptionsDialog();
-      form.ShowDialog(this);
+      //var form = new OptionsDialog();
+      //form.ShowDialog(this);
 
-      if (form.DialogResult != DialogResult.OK) Application.Exit();
+      //if (form.DialogResult != DialogResult.OK) Application.Exit();
 
-      var reg = new RegistryEditor(false);
+      //var reg = new RegistryEditor(false);
 
-      Options.Clarity147Directory = form.Clarity147Directory;
-      Options.Connect201602Directory = form.Connect201602Directory;
-      Options.DevelopmentDirectory = form.DevelopmentDirectory;
+      //Options.Clarity147Directory = form.Clarity147Directory;
+      //Options.Connect201602Directory = form.Connect201602Directory;
+      //Options.DevelopmentDirectory = form.DevelopmentDirectory;
 
-      reg.Write(Options.Clarity147DirectoryKey, Options.Clarity147Directory);
-      reg.Write(Options.Connect201602DirectoryKey, Options.Connect201602Directory);
-      reg.Write(Options.DevelopmentDirectoryKey, Options.DevelopmentDirectory);
+      //reg.Write(Options.Clarity147DirectoryKey, Options.Clarity147Directory);
+      //reg.Write(Options.Connect201602DirectoryKey, Options.Connect201602Directory);
+      //reg.Write(Options.DevelopmentDirectoryKey, Options.DevelopmentDirectory);
     }
   }
 }

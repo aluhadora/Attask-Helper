@@ -7,7 +7,7 @@ namespace Attask_Helper.Utilities
   public class RegistryEditor
   {
     private readonly RegistryKey _baseRegistryKey = Registry.CurrentUser;
-    private const string SubKey = "SOFTWARE\\AtTaskHelper\\Options";
+    private string SubKey = "SOFTWARE\\Aluhadora\\CaselleProfiles";
     private readonly bool _showError = true;
 
     public RegistryEditor()
@@ -22,6 +22,15 @@ namespace Attask_Helper.Utilities
     public string Read(string keyName)
     {
       return (string)ActualRead(keyName);
+    }
+
+    public string Read(string profileName, string keyName)
+    {
+      var tempSubKey = SubKey;
+      SubKey = SubKey + "\\" + profileName;
+      var @return = (string)ActualRead(keyName);
+      SubKey = tempSubKey;
+      return @return;
     }
 
     private object ActualRead(string keyName)

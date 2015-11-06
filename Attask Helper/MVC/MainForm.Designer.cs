@@ -71,7 +71,7 @@
       this.profileComboBox.Items.AddRange(new object[] {
             "Clarity 147",
             "2016.02",
-            "Development"});
+            "Connect"});
       this.profileComboBox.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
       this.profileComboBox.Name = "profileComboBox";
       this.profileComboBox.Size = new System.Drawing.Size(200, 25);

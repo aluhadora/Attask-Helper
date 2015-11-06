@@ -14,7 +14,7 @@ namespace Attask_Helper.MVC
     IList<BuildRow> BuildRows { get; }
     string Resolution { get; }
     string ChangeSet { get; set; }
-    Profile CurrentProfile { get; }
+    AttaskProfile CurrentProfile { get; }
     string ChangeSetSummary { set; }
     
     event EventHandler ProfileChanged;

@@ -2,13 +2,13 @@
 
 namespace Attask_Helper.OptionsDTO
 {
-  public class Profile
+  public class AttaskProfile
   {
     public int Index { get; set; }
     public string ProfileName { get; set; }
     public IList<BuildRow> Rows { get; set; } 
 
-    public Profile()
+    public AttaskProfile()
     {
       Rows = new List<BuildRow>();
     }

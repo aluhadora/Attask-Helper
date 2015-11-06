@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using Attask_Helper.MVC;
 using Attask_Helper.OptionsDTO;
 using Attask_Helper.Utilities;
+using CaselleProfiles.DTO;
+using CaselleProfiles.Processes;
 using BuildRow = Attask_Helper.OptionsDTO.BuildRow;
 
 namespace Attask_Helper
@@ -21,7 +23,7 @@ namespace Attask_Helper
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 
-      PopulateOptions(args);
+      PopulateOptions();
 
       var form = new MainForm {Profile = ComputeProfile(args)};
 
@@ -29,100 +31,66 @@ namespace Attask_Helper
       Application.Run(form);
     }
 
-    private static Profile ComputeProfile(string[] args)
+    private static AttaskProfile ComputeProfile(string[] args)
     {
       var name = string.Join(" ", args);
       return Options.Profiles.FirstOrDefault(x => x.ProfileName == name) ?? Options.Profiles[0];
     }
 
-    private static void PopulateOptions(IEnumerable<string> args)
+    private static void PopulateOptions()
     {
+      var profiles = ProfilesProcess.Load();
       var reg = new RegistryEditor(false);
-      Options.Clarity147Directory = reg.Read(Options.Clarity147DirectoryKey);
-      Options.Connect201602Directory = reg.Read(Options.Connect201602DirectoryKey);
-      Options.DevelopmentDirectory = reg.Read(Options.DevelopmentDirectoryKey);
-      
-      ShowOptionsDialogIfNecessary(args);
 
-      const string clarity = "Clarity 147";
-      const string connect2015 = "2016.02";
-      const string development = "Development";
+      Options.Profiles = new List<AttaskProfile>();
 
-      Options.Profiles = new List<Profile>
+      foreach (var profile in profiles.OrderBy(x => x.Order))
       {
-        new Profile {Index = 0, ProfileName = clarity},
-        new Profile {Index = 1, ProfileName = connect2015},
-        new Profile {Index = 2, ProfileName = development},
-      };
+        var attaskProfile = new AttaskProfile
+        {
+          Index = profile.Order,
+          ProfileName = profile.Name
+        };
+        Options.Profiles.Add(attaskProfile);
 
-      var profiles = Options.Profiles;
+        AddRow(attaskProfile, profile, "Needs to go away");
 
-      AddRow(profiles[0], "Clarity 4.2.147", "4.2.147", Options.Clarity147Directory);
-      AddRow(profiles[0], "2016.02", connect2015, Options.Connect201602Directory);
-      AddRow(profiles[0], "Development", development, Options.DevelopmentDirectory);
+        var subProfileString = reg.Read(profile.Name, "SubProfiles");
 
-      AddRow(profiles[1], "2016.02", connect2015, Options.Connect201602Directory);
-      AddRow(profiles[1], "Development", development, Options.DevelopmentDirectory);
+        if (subProfileString.IsNullOrTrimmedEmpty()) continue; 
 
-      AddRow(profiles[2], "Development", development, Options.DevelopmentDirectory);
-    }
+        var subProfileNames = subProfileString.Split('|');
 
-    private static void ShowOptionsDialogIfNecessary(IEnumerable<string> args)
-    {
-      if (!ShouldShowOptions(args)) return;
+        foreach (var subProfileName in subProfileNames)
+        {
+          AddRow(attaskProfile, profiles.FirstOrDefault(x => x.Name == subProfileName), "Needs to go away");
+        }
 
-      var form = new OptionsDialog();
-      Application.Run(form);
-
-      if (form.DialogResult != DialogResult.OK) Application.Exit();
-      
-      var reg = new RegistryEditor(false);
-      
-      Options.Clarity147Directory = form.Clarity147Directory;
-      Options.Connect201602Directory = form.Connect201602Directory;
-      Options.DevelopmentDirectory = form.DevelopmentDirectory;
-
-      reg.Write(Options.Clarity147DirectoryKey, Options.Clarity147Directory);
-      reg.Write(Options.Connect201602DirectoryKey, Options.Connect201602Directory);
-      reg.Write(Options.DevelopmentDirectoryKey, Options.DevelopmentDirectory);
-
-      if (ShouldShowOptions(args)) Application.Exit();
-    }
-
-    private static bool ShouldShowOptions(IEnumerable<string> args)
-    {
-      if (args.Contains("options")) return true;
-      if (DirectoryCheck(Options.Clarity147Directory)) return true;
-      if (DirectoryCheck(Options.Connect201602Directory)) return true;
-      if (DirectoryCheck(Options.DevelopmentDirectory)) return true;
-
-      return false;
-    }
-
-    private static bool DirectoryCheck(string dir)
-    {
-      if (dir.IsNullOrTrimmedEmpty()) return true;
-      try
-      {
-        return !Directory.Exists(dir);
-      }
-      catch (Exception)
-      {
-        return true;
       }
     }
 
-    private static void AddRow(Profile profile, string projectName, string majorBuild, string directory)
+    private static void AddRow(AttaskProfile attaskProfile, Profile caselleProfile, string majorBuild)
     {
       var row = new BuildRow
       {
-        ProjectName = projectName,
+        Profile = caselleProfile,
         MajorBuild = majorBuild,
-        DirectoryPath = directory,
-        Profile = profile
+        AttaskProfile = attaskProfile,
+        DegobahName = DegobahName(caselleProfile),
+        WebName = DegobahNameConverter.ConvertDegobahNameToDeathstarName(DegobahName(caselleProfile))
       };
 
-      profile.Rows.Add(row);
+      attaskProfile.Rows.Add(row);
+    }
+
+    private static string DegobahName(Profile profile)
+    {
+      var directory = Path.Combine(profile.Directory, ".hg", "hgrc");
+
+      var line = File.ReadAllLines(directory).First(x => x.Contains("default = "));
+      line = line.Substring(0, line.LastIndexOf("/"));
+      line = line.Substring(line.LastIndexOf("/") + 1);
+      return line;
     }
   }
 }
