@@ -53,7 +53,10 @@ namespace Attask_Helper.MVC
 
         profileSelector.Reload();
         profileSelector.ProfileName = currentProfileName;
-        if (profileSelector.ProfileName.IsNullOrTrimmedEmpty()) profileSelector.ProfileName = Options.Profiles.First(x => x.Visible).ProfileName;
+        
+        if (!profileSelector.ProfileName.IsNullOrTrimmedEmpty()) return;
+        var attaskProfile = Options.Profiles.FirstOrDefault(x => x.Visible);
+        if (attaskProfile != null) profileSelector.ProfileName = attaskProfile.ProfileName;
       }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,13 @@ namespace Attask_Helper
     private static void PopulateOptions()
     {
       var profiles = ProfilesProcess.Load();
+      if (profiles == null || profiles.Count == 0)
+      {
+        var process = Process.Start("CaselleProfiles.exe");
+        if (process != null) process.WaitForExit();
+        profiles = ProfilesProcess.Load();
+        if (profiles == null || profiles.Count == 0) Environment.Exit(2);
+      }
       var reg = new RegistryEditor(false);
 
       Options.Profiles = new List<AttaskProfile>();
