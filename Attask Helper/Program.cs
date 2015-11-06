@@ -55,9 +55,9 @@ namespace Attask_Helper
           ProfileName = profile.Name,
         };
 
-        var visible = reg.ReadInt(profile.Name, "Visible");
-        attaskProfile.Visible = !visible.HasValue || visible.Value != 0;
-        reg.Write(attaskProfile.ProfileName, "Visible", attaskProfile.Visible ? 1 : 0);
+        var visible = reg.ReadInt(profile.Name, Options.VisibleKey);
+        attaskProfile.Visible = !visible.HasValue || visible.Value != -1;
+        reg.Write(attaskProfile.ProfileName, Options.VisibleKey, attaskProfile.Visible ? 1 : -1);
 
         Options.Profiles.Add(attaskProfile);
 

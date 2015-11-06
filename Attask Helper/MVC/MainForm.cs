@@ -42,6 +42,8 @@ namespace Attask_Helper.MVC
 
     private void OptionsClicked()
     {
+      var currentProfileName = profileSelector.ProfileName;
+
       using (var dialog = new OptionsDialog())
       {
         dialog.Profile = Profile;
@@ -50,6 +52,8 @@ namespace Attask_Helper.MVC
         if (dialog.DialogResult != DialogResult.OK) return;
 
         profileSelector.Reload();
+        profileSelector.ProfileName = currentProfileName;
+        if (profileSelector.ProfileName.IsNullOrTrimmedEmpty()) profileSelector.ProfileName = Options.Profiles.First(x => x.Visible).ProfileName;
       }
     }
 

@@ -48,7 +48,7 @@ namespace Attask_Helper.MVC
         var p = Profiles[i];
 
         op.Visible = p.Visible;
-        reg.Write(p.ProfileName, "Visible", p.Visible);
+        reg.Write(p.ProfileName, Options.VisibleKey, p.Visible ? 1 : -1);
       }
     }
 
