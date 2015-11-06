@@ -29,9 +29,6 @@
     private void InitializeComponent()
     {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-      this.toolStrip = new System.Windows.Forms.ToolStrip();
-      this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-      this.profileComboBox = new System.Windows.Forms.ToolStripComboBox();
       this.buildPanel = new System.Windows.Forms.Panel();
       this.defaultBuildRow = new Attask_Helper.MVC.BuildControl();
       this.changesetPanel = new System.Windows.Forms.Panel();
@@ -40,44 +37,10 @@
       this.label4 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.resolutionTextBox = new System.Windows.Forms.TextBox();
-      this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-      this.toolStrip.SuspendLayout();
+      this.profileSelector = new CaselleProfiles.MVC.ProfileSelector.ProfileSelector();
       this.buildPanel.SuspendLayout();
       this.changesetPanel.SuspendLayout();
       this.SuspendLayout();
-      // 
-      // toolStrip
-      // 
-      this.toolStrip.BackColor = System.Drawing.SystemColors.Control;
-      this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.profileComboBox,
-            this.toolStripButton1});
-      this.toolStrip.Location = new System.Drawing.Point(0, 0);
-      this.toolStrip.Name = "toolStrip";
-      this.toolStrip.Size = new System.Drawing.Size(691, 25);
-      this.toolStrip.TabIndex = 0;
-      this.toolStrip.Text = "toolStrip1";
-      // 
-      // toolStripLabel1
-      // 
-      this.toolStripLabel1.Name = "toolStripLabel1";
-      this.toolStripLabel1.Size = new System.Drawing.Size(44, 22);
-      this.toolStripLabel1.Text = "Profile:";
-      // 
-      // profileComboBox
-      // 
-      this.profileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.profileComboBox.Items.AddRange(new object[] {
-            "Clarity 147",
-            "2016.02",
-            "Connect"});
-      this.profileComboBox.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
-      this.profileComboBox.Name = "profileComboBox";
-      this.profileComboBox.Size = new System.Drawing.Size(200, 25);
-      this.profileComboBox.DropDownClosed += new System.EventHandler(this.profileComboBox_TextChanged);
-      this.profileComboBox.TextUpdate += new System.EventHandler(this.profileComboBox_TextChanged);
-      this.profileComboBox.TextChanged += new System.EventHandler(this.profileComboBox_TextChanged);
       // 
       // buildPanel
       // 
@@ -168,16 +131,14 @@
       this.resolutionTextBox.TabIndex = 6;
       this.resolutionTextBox.Click += new System.EventHandler(this.ResolutionClicked);
       // 
-      // toolStripButton1
+      // profileSelector
       // 
-      this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-      this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-      this.toolStripButton1.Name = "toolStripButton1";
-      this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-      this.toolStripButton1.Text = "toolStripButton1";
-      this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+      this.profileSelector.CurrentProfile = null;
+      this.profileSelector.Dock = System.Windows.Forms.DockStyle.Top;
+      this.profileSelector.Location = new System.Drawing.Point(0, 0);
+      this.profileSelector.Name = "profileSelector";
+      this.profileSelector.Size = new System.Drawing.Size(691, 25);
+      this.profileSelector.TabIndex = 3;
       // 
       // MainForm
       // 
@@ -187,26 +148,20 @@
       this.ClientSize = new System.Drawing.Size(691, 497);
       this.Controls.Add(this.changesetPanel);
       this.Controls.Add(this.buildPanel);
-      this.Controls.Add(this.toolStrip);
+      this.Controls.Add(this.profileSelector);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "MainForm";
       this.Text = "AtTask Helper";
       this.Load += new System.EventHandler(this.Loaded);
-      this.toolStrip.ResumeLayout(false);
-      this.toolStrip.PerformLayout();
       this.buildPanel.ResumeLayout(false);
       this.changesetPanel.ResumeLayout(false);
       this.changesetPanel.PerformLayout();
       this.ResumeLayout(false);
-      this.PerformLayout();
 
     }
 
     #endregion
 
-    private System.Windows.Forms.ToolStrip toolStrip;
-    private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-    private System.Windows.Forms.ToolStripComboBox profileComboBox;
     private System.Windows.Forms.Panel buildPanel;
     private System.Windows.Forms.Panel changesetPanel;
     private System.Windows.Forms.Label label4;
@@ -215,6 +170,6 @@
     private BuildControl defaultBuildRow;
     private System.Windows.Forms.ComboBox changeSetComboBox;
     private System.Windows.Forms.Label changeSetSummaryLabel;
-    private System.Windows.Forms.ToolStripButton toolStripButton1;
+    private CaselleProfiles.MVC.ProfileSelector.ProfileSelector profileSelector;
   }
 }

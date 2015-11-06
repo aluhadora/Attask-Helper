@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Attask_Helper.OptionsDTO;
-using Attask_Helper.Utilities;
+using CaselleProfiles.DTO;
 
 namespace Attask_Helper.MVC
 {
@@ -28,6 +28,7 @@ namespace Attask_Helper.MVC
       };
 
       HookEventsForRow(defaultBuildRow);
+      profileSelector.ProfileChanged += ProfileSelectorChanged;
     }
 
     private void HookEventsForRow(BuildControl control)
@@ -67,10 +68,16 @@ namespace Attask_Helper.MVC
       _rows[buildRow].Status = buildRow.Status;
     }
 
+    private void ProfileSelectorChanged(Profile obj)
+    {
+      //Profile = Options.Profiles.FirstOrDefault(x => x.ProfileName == obj.Name);
+      Raise(ProfileChangedEvent, null, null);
+    }
+
     public AttaskProfile Profile
     {
-      get { return Options.Profiles.FirstOrDefault(x => x.ProfileName == profileComboBox.Text); }
-      set { profileComboBox.Text = value.ProfileName; }
+      get { return Options.Profiles.FirstOrDefault(x => x.ProfileName == profileSelector.ProfileName); }
+      set { profileSelector.ProfileName = value.ProfileName; }
     }
 
     void IView.RefreshProfiles()
@@ -171,11 +178,6 @@ namespace Attask_Helper.MVC
     }
 
     #endregion
-
-    private void profileComboBox_TextChanged(object sender, EventArgs e)
-    {
-      Raise(ProfileChangedEvent, sender, e);
-    }
 
     private void changeSetComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
