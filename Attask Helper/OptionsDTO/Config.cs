@@ -39,8 +39,14 @@ namespace Attask_Helper.OptionsDTO
 
     private static string GetXml(string path)
     {
-      if (File.Exists(path)) return File.ReadAllText(path);
-      return null;
+      if (!File.Exists(path) || !ConfigIsYoung(path)) return null;
+      File.SetLastAccessTimeUtc(path, DateTime.UtcNow);
+      return File.ReadAllText(path);
+    }
+
+    private static bool ConfigIsYoung(string path)
+    {
+      return File.GetLastAccessTimeUtc(path).AddHours(1) > DateTime.UtcNow;
     }
 
     private static void ReadXml(string xml)
@@ -87,31 +93,3 @@ namespace Attask_Helper.OptionsDTO
     }
   }
 }
-
-//namespace Attask_Helper.Utilities
-//{
-//  public static class DegobahNameConverter
-//  {
-//    private static readonly IDictionary<string, string> Converter; 
-
-//    static DegobahNameConverter()
-//    {
-//      Converter = new Dictionary<string, string>();
-//      var xml = Properties.Resources.Config;
-
-//      XmlReader xr = new XmlTextReader(new StringReader(xml));
-
-//      while (xr.Read())
-//      {
-//        if (xr.Name != "build") continue;
-//        Converter.Add(xr.GetAttribute("degobah"), xr.GetAttribute("deathstar"));
-//      }
-//    }
-
-//    public static string ConvertDegobahNameToDeathstarName(string name)
-//    {
-//      if (!Converter.ContainsKey(name)) return name;
-//      return Converter[name];
-//    }
-//  }
-//}

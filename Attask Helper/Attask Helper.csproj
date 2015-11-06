@@ -90,7 +90,6 @@
     <Compile Include="OptionsDTO\Config.cs" />
     <Compile Include="OptionsDTO\Options.cs" />
     <Compile Include="OptionsDTO\AttaskProfile.cs" />
-    <Compile Include="Processes\DirectoriesProcess.cs" />
     <Compile Include="Processes\GetFileListProcess.cs" />
     <Compile Include="Processes\GetLastRevisionsProcess.cs" />
     <Compile Include="Processes\GetSummaryProcess.cs" />
