@@ -24,28 +24,48 @@ namespace Attask_Helper.OptionsDTO
 
     private static string GetXml()
     {
-      return GetXml(ConfigFileName) ?? GetXml("Resources\\" + ConfigFileName) ?? DownloadConfig();
+      return GetXml(ConfigFileName, true) ??
+        GetXml("Resources\\" + ConfigFileName, true) ??
+        DownloadConfig() ?? GetXml(ConfigFileName, false) ?? 
+        GetXml("Resources\\" + ConfigFileName, false);
     }
 
     private static string DownloadConfig()
     {
-      using (var wc = new WebClient())
+      try
       {
-        wc.DownloadFile(Properties.Resources.ConfigURL, ConfigFileName);        
+        using (var wc = new WebClient())
+        {
+          wc.DownloadFile(Properties.Resources.ConfigURL, ConfigFileName);
+        }
+
+        File.SetLastAccessTimeUtc(ConfigFileName, DateTime.UtcNow);
+      }
+      catch (Exception)
+      {
       }
 
-      return GetXml(ConfigFileName);
+      return GetXml(ConfigFileName, false);
     }
 
-    private static string GetXml(string path)
+    private static string GetXml(string path, bool youthMatters)
     {
-      if (!File.Exists(path) || !ConfigIsYoung(path)) return null;
-      File.SetLastAccessTimeUtc(path, DateTime.UtcNow);
+      if (!File.Exists(path) || !ConfigIsYoung(path, youthMatters)) return null;
+      
+      try
+      {
+        File.SetLastAccessTimeUtc(path, DateTime.UtcNow);
+      }
+      catch (Exception)
+      {
+      }
+      
       return File.ReadAllText(path);
     }
 
-    private static bool ConfigIsYoung(string path)
+    private static bool ConfigIsYoung(string path, bool youthMatters)
     {
+      if (!youthMatters) return true;
       return File.GetLastAccessTimeUtc(path).AddHours(1) > DateTime.UtcNow;
     }
 

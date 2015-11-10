@@ -140,6 +140,6 @@
     <value>..\Resources\Attask-Config.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="ConfigURL" xml:space="preserve">
-    <value>https://raw.githubusercontent.com/aluhadora/Attask-Helper/master/Attask%20Helper/Resources/Config.xml</value>
+    <value>https://raw.githubusercontent.com/aluhadora/Attask-Helper/master/Attask%20Helper/Resources/Attask-Config.xml</value>
   </data>
 </root>

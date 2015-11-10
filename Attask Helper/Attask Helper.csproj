@@ -144,7 +144,6 @@
     <Content Include="Resources\Attask-Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="DeathstarBuildConversions.xml" />
     <None Include="Resources\yellow.png" />
     <None Include="Resources\red.png" />
     <None Include="Resources\orange.png" />

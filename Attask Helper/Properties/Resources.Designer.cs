@@ -95,7 +95,7 @@ namespace Attask_Helper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://raw.githubusercontent.com/aluhadora/Attask-Helper/master/Attask%20Helper/Resources/Config.xml.
+        ///   Looks up a localized string similar to https://raw.githubusercontent.com/aluhadora/Attask-Helper/master/Attask%20Helper/Resources/Attask-Config.xml.
         /// </summary>
         internal static string ConfigURL {
             get {
