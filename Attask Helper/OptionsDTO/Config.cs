@@ -24,7 +24,7 @@ namespace Attask_Helper.OptionsDTO
 
     private static string GetXml()
     {
-      return GetXml(ConfigFileName, true) ??
+      return DownloadConfig() ?? GetXml(ConfigFileName, true) ??
         GetXml("Resources\\" + ConfigFileName, true) ??
         DownloadConfig() ?? GetXml(ConfigFileName, false) ?? 
         GetXml("Resources\\" + ConfigFileName, false);
