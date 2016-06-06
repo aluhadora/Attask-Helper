@@ -1,5 +1,5 @@
 <builds>
-  <build degobah="Connect" deathstar="Development"/>
+  <build degobah="connectMaster" deathstar="Development"/>
   <build degobah="Clarity-4.2.147" deathstar="Clarity 4.2.147"/>
   
   <release name="release" degobah="2016.05">
