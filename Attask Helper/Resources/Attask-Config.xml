@@ -16,6 +16,6 @@
     <subrelease name="development"/>
   </release>
   
-  <release name="development" degobah="Connect"/>
+  <release name="development" degobah="connectMaster"/>
     
 </builds>
