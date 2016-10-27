@@ -2,7 +2,7 @@
   <build degobah="connectMaster" deathstar="Development"/>
   <build degobah="Clarity-4.2.147" deathstar="Clarity 4.2.147"/>
   
-  <release name="release" degobah="2016.08">
+  <release name="release" degobah="2016.11">
     <subrelease name="prerelease"/>
     <subrelease name="development"/>
   </release>
@@ -12,7 +12,7 @@
     <subrelease name="development"/>
   </release>
 
-  <release name="prerelease" degobah="2016.11">
+  <release name="prerelease" degobah="2017.02">
     <subrelease name="development"/>
   </release>
   
