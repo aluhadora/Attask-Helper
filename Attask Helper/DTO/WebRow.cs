@@ -38,7 +38,7 @@ namespace Attask_Helper.DTO
 
         if (Status == "Running")
         {
-          if (Activity == "Sleeping" || Activity == "CheckingModifications" || BuildStatus == BuildStatus.Success)
+          if (Activity == "Sleeping" || Activity == "CheckingModifications" || Activity == "Pending")
             return (lastBuild + 1).ToString();
           if (Activity == "Building") return (lastBuild + 2).ToString();
           return Activity;
