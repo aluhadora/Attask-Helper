@@ -1,5 +1,5 @@
 <builds>
-  <build degobah="connectMaster" deathstar="Development"/>
+  <build degobah="connectmastergit.git" deathstar="Development"/>
   <build degobah="Clarity-4.2.147" deathstar="Clarity 4.2.147"/>
   
   <release name="release" degobah="2016.11">
@@ -12,10 +12,10 @@
     <subrelease name="development"/>
   </release>
 
-  <release name="prerelease" degobah="2017.02">
+  <release name="prerelease" degobah="2017.02git.git">
     <subrelease name="development"/>
   </release>
   
-  <release name="development" degobah="connectMaster"/>
+  <release name="development" degobah="connectmastergit.git"/>
     
 </builds>
